@@ -1,0 +1,39 @@
+<div class="login-container">
+  
+  <h2><span>    <img class="logo" src="assets/images/logo.png" alt="App Logo"/></span><div class="tt">  Parko Login</div></h2>
+
+  <form (ngSubmit)="login()">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input id="username" type="text" [(ngModel)]="username" name="username" required>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input id="password" type="password" [(ngModel)]="password" name="password" required>
+    </div>
+
+    <!-- role : inline label + select -->
+    <div class="form-group role">
+      <label for="role">Role</label>
+      <select id="role" [(ngModel)]="role" name="role" required class="drop">
+        <option value="attendant">Attendant</option>
+        <option value="supervisor">Supervisor</option>
+      </select>
+    </div>
+
+    <button type="submit">Login</button>
+    
+    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+  </form>
+ <div class="admin-glass">
+  <div class="divider"></div>
+
+  <a class="admin-link" routerLink="/admin-login">
+    <span class="icon">🛡️</span>
+    Admin? Click here
+  </a>
+</div>
+
+
+</div>

@@ -1,0 +1,41 @@
+# Node / Angular
+node_modules/
+dist/
+.angular/
+npm-debug.log*
+
+# Environment files
+src/environments/environment.prod.ts
+.env
+
+# .NET
+bin/
+obj/
+*.user
+*.suo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+logs/
+# Visual Studio
+.vs/
+**/.vs/
+
+# .NET build
+bin/
+obj/
+
+# Angular
+node_modules/
+dist/
+.angular/
+
+# Logs & temp
+*.log
