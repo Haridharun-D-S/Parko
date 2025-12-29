@@ -1,7 +1,0 @@
-CREATE DATABASE ParkingSLOT;
-GO
-CREATE TABLE ParkingSlots (
-    SlotID INT IDENTITY(1,1) PRIMARY KEY,
-    SlotNumber NVARCHAR(20) UNIQUE,
-    IsOccupied BIT DEFAULT 0
-);
