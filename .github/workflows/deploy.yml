@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repo
         uses: actions/checkout@v4
 
       - name: Setup Node
@@ -21,15 +21,16 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install deps
+      - name: Install dependencies
+        working-directory: Parko_UI
         run: npm install
 
       - name: Build Angular
+        working-directory: Parko_UI
         run: npx ng build parking-lot-ui --configuration production --base-href /Parko/
 
-
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: dist/parking-lot-ui/browser
+          publish_dir: Parko_UI/dist/parking-lot-ui/browser
