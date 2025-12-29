@@ -25,7 +25,8 @@ jobs:
         run: npm install
 
       - name: Build Angular
-        run: npm run build -- --configuration production --base-href /Parko/
+        run: npx ng build parking-lot-ui --configuration production --base-href /Parko/
+
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
