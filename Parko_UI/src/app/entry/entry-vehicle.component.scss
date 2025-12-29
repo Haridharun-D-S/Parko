@@ -1,0 +1,515 @@
+/* ================= GLOBAL ================= */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: radial-gradient(circle at top, #0f1f2e, #020b14);
+  font-family: 'Poppins', sans-serif;
+  overflow-y: auto;
+}
+
+/* ================= COLORS ================= */
+$glass-a: rgba(255,255,255,0.14);
+$glass-b: rgba(0,0,0,0.25);
+$accent: #ff4701;
+$accent-glow: rgba(255,71,1,0.4);
+$text-light: rgba(255,255,255,0.95);
+$blue: #0084ff;
+$green: #1bbf4c;
+$danger: #ff0a0a;
+
+$radius-lg: 18px;
+$radius-md: 12px;
+$shadow-1: 0 10px 32px rgba(0,0,0,0.55);
+
+/* ================= HEADER ================= */
+.app-header {
+  width: 90%;
+  margin: 16px auto 28px;
+  padding: 14px 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: linear-gradient(135deg, #1a1a1a, #3a3a3a);
+  border-radius: 28px;
+  box-shadow: $shadow-1;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.app-logo {
+  width: 38px;
+  height: 38px;
+}
+
+.header-center {
+  flex: 1;
+  text-align: center;
+  font-size: clamp(22px, 2.2vw, 34px);
+  font-weight: 600;
+  color: $accent;
+  text-shadow: 0 0 8px $accent-glow;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: white;
+}
+
+.logout-btn {
+  background: linear-gradient(135deg, #0084ff, #01539f);
+  border: none;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0);
+
+  transition: 0.2s ease;
+
+  &:hover {
+    background: white;
+    color: $blue;
+    transform: translateY(3px);
+    box-shadow: none;
+  }
+}
+
+/* ================= CONTAINER ================= */
+.container {
+  width: 720px;
+  max-width: calc(100% - 32px);
+  margin: auto;
+
+  padding: 34px 38px;
+  border-radius: $radius-lg;
+
+  background: linear-gradient(135deg, $glass-a, $glass-b);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  box-shadow: $shadow-1;
+  position: relative;
+  border: 1px solid #ffffff73;
+}
+
+/* ================= TITLE ================= */
+h2 {
+  text-align: center;
+  margin-bottom: 28px;
+  font-size: 34px;
+  color: $accent;
+  text-shadow: 0 0 8px $accent-glow;
+}
+
+/* ================= FORM ================= */
+.form-scroll {
+  max-height: calc(75dvh - 140px);
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.form-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.form-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, $accent, #ff7a33);
+  border-radius: 10px;
+}
+
+.form-box {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ================= LABEL & INPUT ================= */
+label {
+  font-size: 18px;
+  font-weight: 500;
+  color: $text-light;
+  background-color: #00000044;
+  padding: 10px 5px;
+  width: fit-content;
+  border-radius: 15px;
+}
+
+input {
+  padding: 14px 16px;
+  border-radius: $radius-md;
+  border: none;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.65);
+  transition: 0.2s ease;
+
+  &:focus {
+    outline: none;
+    transform: translateY(-2px);
+    border: 1px solid $accent;
+    box-shadow: 0 0 0 2px rgba(255,71,1,0.35);
+    background: rgba(255, 255, 255, 0.989);
+
+  }
+  &:active{
+    background: rgba(255, 255, 255, 0.989);
+
+  }
+}
+
+/* ================= ERRORS ================= */
+.error {
+  font-size: 17px;
+  color: $danger;
+  font-weight: 550;
+}
+
+/* ================= CAMERA BOX ================= */
+.camera-box {
+  padding: 18px;
+  border-radius: $radius-md;
+  background: rgba(255,255,255,0.08);
+  border: 1px dashed rgba(255,255,255,0.25);
+
+  
+}
+
+video {
+  width: 100%;
+  border-radius: $radius-md;
+  margin-bottom: 12px;
+}
+
+.preview {
+  width: 100%;
+  border-radius: $radius-md;
+  margin-bottom: 12px;
+}
+
+/* ================= CAMERA ACTIONS ================= */
+.camera-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+
+  button,
+  input[type="file"] {
+    padding: 5px 5px;
+    border-radius: 10px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    background: $blue;
+    color: white;
+    transition: 0.2s ease;
+    padding: 5px 5px;
+    justify-content: center;
+    &:hover {
+      background: white;
+      color: $blue;
+      transform: translateY(2px);
+    }
+  }
+}
+// .upload-wrapper {
+//   display: flex;
+//   align-items: center;
+//   gap: 14px;
+
+//   padding: 14px 18px;
+//   border-radius: 14px;
+
+//   background: rgba(255, 255, 255, 0.08);
+//   backdrop-filter: blur(10px) saturate(140%);
+//   -webkit-backdrop-filter: blur(10px) saturate(140%);
+
+//   border: 1px dashed rgba(255, 255, 255, 0.25);
+// }
+
+.upload-btn {
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: none;
+
+  background: linear-gradient(135deg, #ff7a18, #ff4701);
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(255, 71, 1, 0.45);
+    color: linear-gradient(180deg, #ff4701, #ff6a2b);
+    background-color: #ffffff;
+  }
+
+  &:active {
+    transform: scale(0.96);
+  }
+}
+
+.file-name {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 220px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  
+}
+
+/* ================= OCR BUTTON ================= */
+button[type="button"] {
+  align-self: center;
+  padding: 12px 20px;
+  border-radius: $radius-md;
+  border: none;
+  font-weight: 600;
+  background: linear-gradient(180deg, #ff4701, #ff6a2b);
+  color: white;
+  cursor: pointer;
+  transition: 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255,71,1,0.45);
+    color: linear-gradient(180deg, #ff4701, #ff6a2b);
+    background-color: #ffffff;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+/* ================= SUBMIT ================= */
+.wrap{
+  display: flex;
+  justify-content: center;
+}
+.entry-btn{
+  width: 300px;
+  align-content: center;
+  margin-top: 20px;
+  padding: 16px;
+  border-radius: $radius-md;
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(180deg, $green, darken($green, 6%));
+  color: white;
+  transition: 0.25s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px rgba(0,255,60,0.45);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+  }
+}
+
+/* ================= MESSAGE ================= */
+.msg {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 16px;
+  color: $text-light;
+}
+
+.msg.ok {
+  color: #3cff6b;
+}
+
+.msg.err {
+  color: #ff0000;
+}
+
+/* ================= BACK ================= */
+.attendant-back {
+
+  position: absolute;
+  bottom: 10px;
+  right: 22px;
+  
+  background: linear-gradient(135deg, #0084ff, #01539f);
+  border: none;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0);
+
+  transition: 0.2s ease;
+
+  &:hover {
+    background: white;
+    color: $blue;
+    transform: translateY(3px);
+    box-shadow: none;
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .container {
+    padding: 26px;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+
+  .attendant-back {
+    position: static;
+    margin-top: 20px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 520px) {
+  .header-center {
+    font-size: 18px;
+  }
+
+  .camera-actions {
+    flex-direction: column;
+  }
+}
+/* ================= EXTRA UI (SAFE ADDITIONS) ================= */
+
+/* Camera / ML container */
+.ml-box,
+.camera-box {
+  margin-top: 10px;
+  padding: 16px;
+  border-radius: $radius-md;
+  background: rgba(255,255,255,0.08);
+  border: 1px dashed rgba(255,255,255,0.25);
+}
+
+/* Camera video */
+video {
+  width: 100%;
+  max-height: 240px;
+  border-radius: $radius-md;
+  margin-top: 12px;
+  object-fit: cover;
+  background: #000;
+}
+
+/* Canvas stays hidden */
+canvas {
+  display: none;
+}
+
+/* OCR / Camera buttons row */
+.ml-box button,
+.camera-actions button,
+input[type="file"] {
+  margin-top: 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+
+  background: #0084ff;
+  color: #ffffff;
+
+  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+  transition: all 0.18s ease;
+}
+
+.ml-box button:hover,
+.camera-actions button:hover,
+input[type="file"]:hover {
+  background: #ffffff;
+  color: #0084ff;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.45);
+}
+
+/* File upload alignment */
+input[type="file"] {
+  width: 100%;
+  background: rgba(255,255,255,0.85);
+  color: #1a1a1a;
+}
+
+/* Image preview modal (glassy, matches theme) */
+.image-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  z-index: 1000;
+}
+
+.image-modal-content {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  max-width: 90vw;
+  max-height: 80vh;
+
+  background: rgba(0,0,0,0.9);
+  padding: 14px;
+  border-radius: $radius-lg;
+  z-index: 1001;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-modal-content img {
+  max-width: 100%;
+  max-height: 70vh;
+  border-radius: $radius-md;
+}
+
+.image-modal-content .close-btn {
+  margin-top: 12px;
+  padding: 8px 16px;
+  border-radius: $radius-md;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+
+  background: #ff4701;
+  color: #ffffff;
+}
+
+/* Prevent glass card overflow */
+.container {
+  overflow: hidden;
+}
+
+/* Scroll safety inside form */
+.form-box {
+  overflow-x: hidden;
+}
